@@ -1,3 +1,3 @@
-import { banner } from "./images/banner.png";
+import banner from "./images/banner.png";
 
-export { banner };
+export default { banner };
