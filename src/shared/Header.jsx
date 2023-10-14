@@ -4,7 +4,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Header() {
-  const pages = ["Products", "Pricing", "Blog"];
+  const pages = ["Home", "Blog", "Product", "Contact"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   const [anchorElNav, setAnchorElNav] = useState(null);
