@@ -1,10 +1,12 @@
-import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from "@mui/material";
+import { AppBar, Avatar, Badge, Box, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from "@mui/material";
 import { useState } from "react";
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
+import { Mail, Notifications } from "@mui/icons-material";
 
 export default function Header() {
-  const pages = ["Home", "Blog", "Product", "Contact"];
+  const pages = ["Home", "Product", "Blog", "Contact", "Login", "Register"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -34,7 +36,7 @@ export default function Header() {
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -72,9 +74,14 @@ export default function Header() {
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                    <Link to={`/${page.toLowerCase()}`}>
+                      <Typography textAlign="center">{page}</Typography>
+                    </Link>
                   </MenuItem>
                 ))}
+                <MenuItem>
+                  <Link to="/blog/1">Blog Details</Link>
+                </MenuItem>
               </Menu>
             </Box>
             <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -82,7 +89,7 @@ export default function Header() {
               variant="h5"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },
@@ -98,12 +105,23 @@ export default function Header() {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
-                <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: "white", display: "block" }}>
-                  {page}
-                </Button>
+                <Link key={page} onClick={handleCloseNavMenu} to={`/${page.toLowerCase()}`} style={{ color: "#fff", marginInline: "10px" }}>
+                  <Typography textAlign="center">{page}</Typography>
+                </Link>
               ))}
             </Box>
-
+            <Box sx={{ display: { md: "flex" }, mr: 3 }}>
+              <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                <Badge badgeContent={4} color="error">
+                  <Mail />
+                </Badge>
+              </IconButton>
+              <IconButton size="large" aria-label="show 17 new notifications" color="inherit">
+                <Badge badgeContent={17} color="error">
+                  <Notifications />
+                </Badge>
+              </IconButton>
+            </Box>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
