@@ -19,24 +19,24 @@ export const AuthSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(registerAuth.pending, (state, action) => {
+      .addCase(registerAuth.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(registerAuth.fulfilled, (state, { payload }) => {
+      .addCase(registerAuth.fulfilled, (state) => {
         state.status = "idle";
       })
-      .addCase(registerAuth.rejected, (state, action) => {
+      .addCase(registerAuth.rejected, (state) => {
         state.status = "idle";
       })
 
-      .addCase(loginAuth.pending, (state, action) => {
+      .addCase(loginAuth.pending, (state) => {
         state.status = "loading";
       })
       .addCase(loginAuth.fulfilled, (state, { payload }) => {
         state.status = "idle";
         localStorage.setItem("token", payload.token);
       })
-      .addCase(loginAuth.rejected, (state, action) => {
+      .addCase(loginAuth.rejected, (state) => {
         state.status = "idle";
       });
   },
