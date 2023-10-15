@@ -12,10 +12,14 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
-    const { email, password } = data;
+    // const { email, password } = data;
+    // const formData = new FormData();
+    // formData.append("email", email);
+    // formData.append("password", password);
+
     const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
+    formData.append("email", data.email);
+    formData.append("password", data.password);
 
     dispatch(loginAuth(formData));
   };

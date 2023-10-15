@@ -71,6 +71,9 @@ export default function Header() {
                   display: { xs: "block", md: "none" },
                 }}
               >
+                <MenuItem>
+                  <Link to="/">Home</Link>
+                </MenuItem>
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Link to={`/${page.toLowerCase()}`}>
@@ -102,6 +105,11 @@ export default function Header() {
             >
               LOGO
             </Typography>
+            <MenuItem>
+              <Link to="/" style={{ color: "#fff", marginInline: "10px" }}>
+                Home
+              </Link>
+            </MenuItem>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Link key={page} onClick={handleCloseNavMenu} to={`/${page.toLowerCase()}`} style={{ color: "#fff", marginInline: "10px" }}>

@@ -34,7 +34,9 @@ export const AuthSlice = createSlice({
       })
       .addCase(loginAuth.fulfilled, (state, { payload }) => {
         state.status = "idle";
-        localStorage.setItem("token", payload.token);
+        if (payload.status === 200) {
+          localStorage.setItem("token", payload.token);
+        }
       })
       .addCase(loginAuth.rejected, (state) => {
         state.status = "idle";
