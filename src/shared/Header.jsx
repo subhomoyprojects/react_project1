@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Mail, Notifications } from "@mui/icons-material";
 
 export default function Header() {
-  const pages = ["Home", "Product", "Blog", "Contact", "Login", "Register"];
+  const pages = ["Product", "Blog", "Contact", "Login", "Register"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   const [anchorElNav, setAnchorElNav] = useState(null);
